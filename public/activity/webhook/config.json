@@ -1,0 +1,63 @@
+{
+    "workflowApiVersion": "1.0",
+    "metaData": {
+        "version": "2.0",
+        "icon": "images/icon.jpg",
+        "iconSmall": "images/icon-small.jpg"
+    },
+    "type": "REST",
+    "lang": {
+        "en-US": {
+            "name": "Webhook",
+            "description": "Send webhook data of your journey's event to an HTTP based endpoint."
+        }
+    },
+    "arguments": {
+        "execute": {       
+			"inArguments":[
+                {
+                    "contactKey": "{{Contact.Key}}",
+                    "email": "{{Contact.Default.Email}}"
+                }							
+			],
+            "outArguments": [],			
+			"url": "https://YOUR_URL/webhook/execute",
+            "verb": "POST",
+            "body": "",
+            "header": "",
+            "format": "json",
+            "useJwt": false,
+            "timeout": 10000
+        }
+    },
+    "configurationArguments": {
+    	"applicationExtensionKey": "YOUR_APPLICATION_KEY_IN_APP_CENTER",
+        "defaults": { 
+            "method": "POST",
+            "format": "JSON" 
+        },             
+        "save": {
+        	"url": "https://YOUR_URL/webhook/save/",
+            "body": "",
+            "verb": "POST",
+            "useJwt": false
+        },
+        "publish": {
+        	"url": "https://YOUR_URL/webhook/publish/",
+            "verb": "POST",
+            "body": "",
+            "useJwt": false
+        },
+        "validate": {
+        	"url": "https://YOUR_URL/webhook/validate/",
+            "verb": "POST",
+            "body": "",
+            "useJwt": false            
+        }
+    },
+    "edit": {
+    	"url": "https://YOUR_URL/activity/webhook/",
+        "height": 400,
+        "width": 500
+    }
+}
